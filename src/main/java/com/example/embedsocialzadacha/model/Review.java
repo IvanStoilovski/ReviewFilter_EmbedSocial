@@ -31,12 +31,14 @@ public class Review {
     private String logoHref;
     private String photos;
 
-    public Review(@JsonProperty("id") String id, String reviewId, String reviewFullText,
-                  String reviewText, String numLikes, String numComments, String numShares,
-                  String rating, String reviewCreatedOn, String reviewCreatedOnDate,
-                  String reviewCreatedOnTime, String reviewerId, String reviewerUrl, String reviewerName,
-                  String reviewerEmail, String sourceType, String isVerified, String source, String sourceName,
-                  String sourceId, String tags, String href, String logoHref, String photos) {
+    public Review(@JsonProperty("id") String id, @JsonProperty("reviewId") String reviewId, @JsonProperty("reviewFullText") String reviewFullText,
+                  @JsonProperty("reviewText") String reviewText,@JsonProperty("numLikes") String numLikes,@JsonProperty("numComments") String numComments,
+                  @JsonProperty("numShares") String numShares, @JsonProperty("rating") String rating, @JsonProperty("reviewCreatedOn") String reviewCreatedOn,
+                  @JsonProperty("reviewCreatedOnDate") String reviewCreatedOnDate,@JsonProperty("reviewCreatedOnTime") String reviewCreatedOnTime,
+                  @JsonProperty("reviewerId") String reviewerId, @JsonProperty("reviewerUrl") String reviewerUrl,@JsonProperty("reviewerName") String reviewerName,
+                  @JsonProperty("reviewerEmail") String reviewerEmail, @JsonProperty("sourceType") String sourceType,@JsonProperty("isVerified") String isVerified,
+                  @JsonProperty("source") String source, @JsonProperty("sourceName") String sourceName, @JsonProperty("sourceId") String sourceId,
+                  @JsonProperty("tags") String tags, @JsonProperty("href") String href,@JsonProperty("logoHref") String logoHref,@JsonProperty("photos") String photos) {
         Id = id;
         this.reviewId = reviewId;
         this.reviewFullText = reviewFullText;
