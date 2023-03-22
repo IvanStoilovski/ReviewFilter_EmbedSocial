@@ -556,5 +556,7 @@ public class EmbedSocialZadachaApplication implements CommandLineRunner {
                 }
             }
         }
+        for(Review r: DataHolder.inMemoryReviewList)
+            r.printDetailsForTesting();
     }
 }

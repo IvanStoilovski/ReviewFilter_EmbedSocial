@@ -141,6 +141,7 @@ public class Review {
     }
     public void printDetailsForTesting()
     {
-        System.out.println("id: "+getId()+ " rating: "+getRating());
+        System.out.println("id: "+getId()+ " rating: "+getRating()+ " reviewed on date: "+getReviewCreatedOnDate()+" Text size: "+
+                getReviewFullText().length());
     }
 }
