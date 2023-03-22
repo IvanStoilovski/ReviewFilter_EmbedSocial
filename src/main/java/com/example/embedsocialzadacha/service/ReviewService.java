@@ -11,6 +11,7 @@ public interface ReviewService {
                              String rating, String reviewCreatedOn, String reviewCreatedOnDate,
                              String reviewCreatedOnTime, String reviewerId, String reviewerUrl, String reviewerName,
                              String reviewerEmail, String sourceType, String isVerified, String source, String sourceName,
-                             String sourceId, String tags, String href, String logoHref, String photos);
+                             String sourceId, List tags, String href, String logoHref, List photos);
+    public void saveAll(List<Review> reviews);
 
 }

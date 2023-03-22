@@ -25,9 +25,14 @@ public class ReviewServiceImpl implements ReviewService {
                              String reviewCreatedOn, String reviewCreatedOnDate, String reviewCreatedOnTime,
                              String reviewerId, String reviewerUrl, String reviewerName, String reviewerEmail,
                              String sourceType, String isVerified, String source, String sourceName, String sourceId,
-                             String tags, String href, String logoHref, String photos) {
+                             List tags, String href, String logoHref, List photos) {
         inMemoryRepository.save(id,reviewId,reviewFullText,reviewText,numLikes,numComments,numShares,rating,reviewCreatedOn,
                 reviewCreatedOnDate,reviewCreatedOnTime,reviewerId,reviewerUrl,reviewerName,reviewerEmail,sourceType,isVerified,source,
                 sourceName,sourceId,tags,href,logoHref,photos);
+    }
+
+    @Override
+    public void saveAll(List<Review> reviews) {
+        inMemoryRepository.saveAll(reviews);
     }
 }

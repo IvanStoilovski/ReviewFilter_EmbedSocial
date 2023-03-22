@@ -23,11 +23,15 @@ public class InMemoryRepository {
                       String rating, String reviewCreatedOn, String reviewCreatedOnDate,
                       String reviewCreatedOnTime, String reviewerId, String reviewerUrl, String reviewerName,
                       String reviewerEmail, String sourceType, String isVerified, String source, String sourceName,
-                      String sourceId, String tags, String href, String logoHref, String photos)
+                      String sourceId, List tags, String href, String logoHref, List photos)
     {
         DataHolder.inMemoryReviewList.removeIf(f->f.getId().equals(id));
         DataHolder.inMemoryReviewList.add(new Review(id,reviewId,reviewFullText,reviewText,numLikes,numComments,numShares,rating,reviewCreatedOn,
                 reviewCreatedOnDate,reviewCreatedOnTime,reviewerId,reviewerUrl,reviewerName,reviewerEmail,sourceType,isVerified,source,
                 sourceName,sourceId,tags,href,logoHref,photos));
+    }
+    public void saveAll(List<Review> reviews)
+    {
+        DataHolder.inMemoryReviewList.addAll(reviews);
     }
 }
