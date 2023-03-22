@@ -13,26 +13,8 @@ public class ReviewServiceImpl implements ReviewService {
     public ReviewServiceImpl(InMemoryRepository inMemoryRepository) {
         this.inMemoryRepository = inMemoryRepository;
     }
-
     @Override
-    public List<Review> findAll() {
-        return inMemoryRepository.findAll();
-    }
-
-    @Override
-    public void saveOrUpdate(String id, String reviewId, String reviewFullText, String reviewText,
-                             String numLikes, String numComments, String numShares, String rating,
-                             String reviewCreatedOn, String reviewCreatedOnDate, String reviewCreatedOnTime,
-                             String reviewerId, String reviewerUrl, String reviewerName, String reviewerEmail,
-                             String sourceType, String isVerified, String source, String sourceName, String sourceId,
-                             List tags, String href, String logoHref, List photos) {
-        inMemoryRepository.save(id,reviewId,reviewFullText,reviewText,numLikes,numComments,numShares,rating,reviewCreatedOn,
-                reviewCreatedOnDate,reviewCreatedOnTime,reviewerId,reviewerUrl,reviewerName,reviewerEmail,sourceType,isVerified,source,
-                sourceName,sourceId,tags,href,logoHref,photos);
-    }
-
-    @Override
-    public void saveAll(List<Review> reviews) {
-        inMemoryRepository.saveAll(reviews);
+    public List<Review> sortWithParameters(Boolean highestRating, Integer minRating, Boolean oldest, Boolean prioritizeText) {
+        return inMemoryRepository.SortWithParameters(highestRating, minRating, oldest, prioritizeText);
     }
 }

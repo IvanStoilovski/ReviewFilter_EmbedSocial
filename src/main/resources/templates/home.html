@@ -1,11 +1,20 @@
 <!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <title>Hello</title>
-    <h1>OI</h1>
 </head>
 <body>
-
+<table>
+    <tbody>
+    <tr th:each="r : ${reviews}">
+        <td><span th:text="${r.getId()}"> Title </span></td>
+        <td><span th:text="${r.getRating()}"> Title </span></td>
+        <td><span th:text="${r.getReviewCreatedOnDate()}"> </span></td>
+        <td><span th:text="${r.getReviewText().length()}"> Title </span></td>
+    </tr>
+    </tbody>
+</table>
 </body>
 </html>

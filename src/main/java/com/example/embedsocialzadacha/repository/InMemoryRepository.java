@@ -4,6 +4,8 @@ import com.example.embedsocialzadacha.bootstrap.DataHolder;
 import com.example.embedsocialzadacha.model.Review;
 import org.springframework.stereotype.Repository;
 
+import java.util.ArrayList;
+import java.util.Comparator;
 import java.util.List;
 import java.util.Optional;
 import java.util.stream.Collectors;
@@ -34,4 +36,47 @@ public class InMemoryRepository {
     {
         DataHolder.inMemoryReviewList.addAll(reviews);
     }
+    public List<Review> filterByMinRating(List<Review> list, Integer rating)
+    {
+        return list.stream().filter(f->f.getRating()>=rating).collect(Collectors.toList());
+    }
+    public void sortByRatingAndDatePriority(List<Review> reviews, Boolean highestFirst, Boolean oldest)
+    {
+        if(highestFirst && !oldest)
+        {
+            reviews.sort(Comparator.comparing(Review::getRating).reversed().thenComparing(Review::getReviewCreatedOnDate));
+        }
+        else if(highestFirst)
+        {
+            reviews.sort(Comparator.comparing(Review::getRating).reversed());
+        }
+        else if(!oldest)
+        {
+            reviews.sort(Comparator.comparing(Review::getRating).thenComparing(Review::getReviewCreatedOnDate));
+        }
+        else if(oldest)
+        {
+            reviews.sort(Comparator.comparing(Review::getRating));
+        }
+    }
+    public List<Review> SortWithParameters(Boolean highestRating, Integer minRating, Boolean oldest, Boolean prioritizeText)
+    {
+        List<Review> listWithMinRating=filterByMinRating(findAll(),minRating);
+        List<Review> temp = new ArrayList<>();
+        if(prioritizeText)
+        {
+            List<Review> tempWithText = listWithMinRating.stream().filter(f -> f.getReviewText().length()>0).collect(Collectors.toList());
+            sortByRatingAndDatePriority(tempWithText,highestRating, oldest);
+            List<Review> tempWithoutText = listWithMinRating.stream().filter(f -> f.getReviewText().length() == 0).collect(Collectors.toList());
+            sortByRatingAndDatePriority(tempWithoutText,highestRating, oldest);
+            temp.addAll(tempWithText);
+            temp.addAll(tempWithoutText);
+        }
+        else {
+            temp = listWithMinRating;
+            sortByRatingAndDatePriority(temp,highestRating, oldest);
+        }
+        return temp;
+    }
+
 }
