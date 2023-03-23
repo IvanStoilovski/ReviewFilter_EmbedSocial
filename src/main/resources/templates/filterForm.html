@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
 <head>
     <meta charset="UTF-8">
     <title>Filter form</title>
@@ -8,26 +9,26 @@
 <body>
 <h2>Filter Reviews</h2>
 <form th:method="POST" th:action="@{filter}">
-    <select name = "highestRating">
+    <select class="form-select" name = "highestRating">
         <option value = "true" selected>Highest First</option>
         <option value = "false" >Lowest First</option>
     </select>
-    <select name="minRating">
+    <select class="form-select" name="minRating">
         <option value = "1" selected>1</option>
         <option value = "2" >2</option>
         <option value = "3" >3</option>
         <option value = "4" >4</option>
         <option value = "5" >5</option>
     </select>
-    <select name="oldest">
+    <select class="form-select" name="oldest">
         <option value = "true" selected>Oldest First</option>
         <option value = "false" >Newest First</option>
     </select>
-    <select name="prioritizeText">
+    <select class="form-select" name="prioritizeText">
         <option value = "true" selected>Yes</option>
         <option value = "false" >No</option>
     </select>
-    <button type="submit" value="submit">Filter</button>
+    <button class="btn btn-primary" type="submit" value="submit">Filter</button>
 </form>
 </body>
 </html>
