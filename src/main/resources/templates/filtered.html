@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Filtered reviews</title>
+    <style>
+        table{
+            margin-left: auto;
+            margin-right: auto;
+            margin-top: auto;
+        }
+        table, th, td {
+            border: 1px solid;
+            text-align: center;
+        }
+        th, td {
+            padding: 5px;
+            align-items: center;
+        }
+    </style>
+</head>
+<body>
+<table>
+    <thead>
+    <tr>
+        <th> Review Id</th>
+        <th> Rating</th>
+        <th> Created on date</th>
+        <th>Review text</th>
+        <th>Reviewer name</th>
+        <th>Source type</th>
+        <th>Verified</th>
+        <th>Source name</th>
+        <th>Source Id</th>
+        <th>Number of likes</th>
+        <th>Number of comments</th>
+        <th>Number of shares</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr th:each="r : ${reviews}">
+        <td><span th:text="${r.getId()}"> </span></td>
+        <td><span th:text="${r.getRating()}"> </span></td>
+        <td><span th:text="${r.printCreatedOnFormated()}"> </span></td>
+        <td><span th:text="${r.getReviewText()}"> </span></td>
+        <td><span th:text="${r.getReviewerName()}"> </span></td>
+        <td><span th:text="${r.getSourceType()}"> </span></td>
+        <td><span th:text="${r.getVerified()}"> </span></td>
+        <td><span th:text="${r.getSourceName()}"> </span></td>
+        <td><span th:text="${r.getSourceId()}"> </span></td>
+        <td><span th:text="${r.getNumLikes()}"> </span></td>
+        <td><span th:text="${r.getNumComments()}"> </span></td>
+        <td><span th:text="${r.getNumShares()}"> </span></td>
+    </tr>
+    </tbody>
+</table>
+</body>
+</html>

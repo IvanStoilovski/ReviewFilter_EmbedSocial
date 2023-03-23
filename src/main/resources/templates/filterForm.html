@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Filter form</title>
+</head>
+<body>
+<h2>Filter Reviews</h2>
+<form th:method="POST" th:action="@{filter}">
+    <select name = "highestRating">
+        <option value = "true" selected>Highest First</option>
+        <option value = "false" >Lowest First</option>
+    </select>
+    <select name="minRating">
+        <option value = "1" selected>1</option>
+        <option value = "2" >2</option>
+        <option value = "3" >3</option>
+        <option value = "4" >4</option>
+        <option value = "5" >5</option>
+    </select>
+    <select name="oldest">
+        <option value = "true" selected>Oldest First</option>
+        <option value = "false" >Newest First</option>
+    </select>
+    <select name="prioritizeText">
+        <option value = "true" selected>Yes</option>
+        <option value = "false" >No</option>
+    </select>
+    <button type="submit" value="submit">Filter</button>
+</form>
+</body>
+</html>

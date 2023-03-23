@@ -5,7 +5,9 @@ import com.example.embedsocialzadacha.service.ReviewService;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import java.util.List;
 
@@ -19,10 +21,24 @@ public class HomeController {
     }
 
     @GetMapping
-    public String home(Model model)
+    public String home()
     {
-        List<Review> list=reviewService.sortWithParameters(false,2,true,true);
+        return "filterForm";
+    }
+    @PostMapping("/filter")
+    public String filterReviews(Model model,
+                                @RequestParam Boolean highestRating,
+                                @RequestParam Integer minRating,
+                                @RequestParam Boolean oldest,
+                                @RequestParam Boolean prioritizeText)
+    {
+        List<Review> list=reviewService.sortWithParameters(highestRating,minRating,oldest,prioritizeText);
         model.addAttribute("reviews", list);
-        return "home";
+        return "filtered";
+    }
+    @GetMapping("/filtered")
+    public String showFiltered()
+    {
+        return "filtered";
     }
 }

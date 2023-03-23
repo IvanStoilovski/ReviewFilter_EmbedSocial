@@ -123,7 +123,16 @@ public class Review {
     {
         return Id;
     }
-
+    public String printCreatedOnFormated()
+    {
+     StringBuilder stringBuilder= new StringBuilder();
+     stringBuilder.append(getReviewCreatedOnDate().getDayOfMonth())
+             .append("/").append(getReviewCreatedOnDate().getMonth().getValue()).append("/")
+             .append(getReviewCreatedOnDate().getYear())
+             .append(" at ");
+     stringBuilder.append(getReviewCreatedOnDate().toLocalTime().toString());
+     return stringBuilder.toString();
+    }
     public List getTags() {
         return tags;
     }
@@ -143,5 +152,37 @@ public class Review {
     {
         System.out.println("id: "+getId()+ " rating: "+getRating()+ " reviewed on date: "+getReviewCreatedOnDate()+" Text size: "+
                 getReviewFullText().length());
+    }
+
+    public String getReviewerName() {
+        return reviewerName;
+    }
+
+    public String getSourceType() {
+        return sourceType;
+    }
+
+    public Boolean getVerified() {
+        return isVerified;
+    }
+
+    public String getSourceName() {
+        return sourceName;
+    }
+
+    public Integer getNumLikes() {
+        return numLikes;
+    }
+
+    public Integer getNumComments() {
+        return numComments;
+    }
+
+    public Integer getNumShares() {
+        return numShares;
+    }
+
+    public String getSourceId() {
+        return sourceId;
     }
 }
