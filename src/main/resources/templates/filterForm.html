@@ -5,30 +5,70 @@
 <head>
     <meta charset="UTF-8">
     <title>Filter form</title>
+    <style>
+        h2
+        {
+            margin-bottom: 5%;
+            padding-bottom: 10px;
+        }
+        select
+        {
+            display: block;
+            height: 40px;
+        }
+        body
+        {
+            align-content: center;
+        }
+        label
+        {
+            font-weight: bold;
+        }
+        form
+        {
+            display: flex;
+            flex-direction: column;
+            margin-top: 5%;
+            margin-left: auto;
+            margin-right: auto;
+            max-width: 500px;
+        }
+        button
+        {
+            max-width: 80px;
+        }
+    </style>
 </head>
 <body>
-<h2>Filter Reviews</h2>
+
 <form th:method="POST" th:action="@{filter}">
-    <select class="form-select" name = "highestRating">
+    <h3>Filter Reviews</h3>
+    <br>
+    <label for="highestRating">Order by rating: </label>
+    <select id="highestRating" class="form-select form-select-lg mb-3" name = "highestRating">
         <option value = "true" selected>Highest First</option>
         <option value = "false" >Lowest First</option>
     </select>
-    <select class="form-select" name="minRating">
+     <label for="minRating">Minimum rating</label>
+    <select id="minRating" class="form-select form-select-lg  mb-3" name="minRating">
         <option value = "1" selected>1</option>
         <option value = "2" >2</option>
         <option value = "3" >3</option>
         <option value = "4" >4</option>
         <option value = "5" >5</option>
     </select>
-    <select class="form-select" name="oldest">
+    <label for="oldest">Order by date: </label>
+    <select id="oldest" class="form-select form-select-lg mb-3" name="oldest">
         <option value = "true" selected>Oldest First</option>
         <option value = "false" >Newest First</option>
     </select>
-    <select class="form-select" name="prioritizeText">
+    <label for="pr_text">Prioritize by text:</label>
+    <select id="pr_text" class="form-select form-select-lg mb-3" name="prioritizeText">
         <option value = "true" selected>Yes</option>
         <option value = "false" >No</option>
     </select>
     <button class="btn btn-primary" type="submit" value="submit">Filter</button>
 </form>
+
 </body>
 </html>

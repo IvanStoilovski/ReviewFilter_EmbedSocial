@@ -5,38 +5,29 @@
 <head>
     <meta charset="UTF-8">
     <title>Filtered reviews</title>
-   <!-- <style>
-        table{
-            margin-left: auto;
-            margin-right: auto;
-            margin-top: auto;
-        }
-        table, th, td {
-            border: 1px solid;
-            text-align: center;
-        }
-        th, td {
-            padding: 5px;
-            align-items: center;
-        }
-    </style>-->
+    <style>
+        .table td{
+          text-align: center;
+         }
+
+    </style>
 </head>
 <body>
-<table>
-    <thead>
+<table class="table table-bordered">
+    <thead class="thead-dark">
     <tr>
-        <th> Review Id</th>
-        <th> Rating</th>
-        <th> Created on date</th>
-        <th>Review text</th>
-        <th>Reviewer name</th>
-        <th>Source type</th>
-        <th>Verified</th>
-        <th>Source name</th>
-        <th>Source Id</th>
-        <th>Number of likes</th>
-        <th>Number of comments</th>
-        <th>Number of shares</th>
+        <th scope="col" class="text-center"> Review Id</th>
+        <th scope="col" class="text-center"> Rating</th>
+        <th scope="col"> Created on date</th>
+        <th scope="col">Review text</th>
+        <th scope="col">Reviewer name</th>
+        <th scope="col">Source type</th>
+        <th scope="col">Verified</th>
+        <th scope="col">Source name</th>
+        <th scope="col">Source Id</th>
+        <th scope="col">Number of likes</th>
+        <th scope="col">Number of comments</th>
+        <th scope="col">Number of shares</th>
     </tr>
     </thead>
     <tbody>
