@@ -44,19 +44,20 @@ public class InMemoryRepository {
     {
         if(highestFirst && !oldest)
         {
-            reviews.sort(Comparator.comparing(Review::getRating).reversed().thenComparing(Review::getReviewCreatedOnDate));
+            reviews.sort(Comparator.comparing(Review::getRating).reversed());
         }
         else if(highestFirst)
         {
-            reviews.sort(Comparator.comparing(Review::getRating).reversed());
+
+            reviews.sort(Comparator.comparing(Review::getRating).reversed().thenComparing(Review::getReviewCreatedOnDate));
         }
         else if(!oldest)
         {
-            reviews.sort(Comparator.comparing(Review::getRating).thenComparing(Review::getReviewCreatedOnDate));
+            reviews.sort(Comparator.comparing(Review::getRating));
         }
         else if(oldest)
         {
-            reviews.sort(Comparator.comparing(Review::getRating));
+            reviews.sort(Comparator.comparing(Review::getRating).thenComparing(Review::getReviewCreatedOnDate));
         }
     }
     public List<Review> SortWithParameters(Boolean highestRating, Integer minRating, Boolean oldest, Boolean prioritizeText)
