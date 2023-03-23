@@ -36,9 +36,5 @@ public class HomeController {
         model.addAttribute("reviews", list);
         return "filtered";
     }
-    @GetMapping("/filtered")
-    public String showFiltered()
-    {
-        return "filtered";
-    }
+
 }
